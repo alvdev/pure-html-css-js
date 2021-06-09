@@ -59,6 +59,7 @@ p {
 h1 {
     font-size: 3.5rem;
     letter-spacing: .3rem;
+    overflow-wrap: break-word;
 }
 
 ul {
@@ -73,7 +74,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 4rem;
+    padding: 0 5%;
     gap: 1rem;
 }
 
@@ -96,7 +97,7 @@ nav > * {
     font-size: 1.25rem;
 }
 
-.links {
+.menu {
     display: flex;
     gap: 1.5rem;
     justify-content: flex-end;
@@ -109,7 +110,7 @@ nav > * {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 4rem;
+    padding: 6rem 5%;
     box-shadow: 0 0 0 2000px rgb(0, 0, 0, 30%) inset;
 }
 
@@ -125,7 +126,7 @@ nav > * {
 }
 
 .btn {
-    background-color: #008080;
+    background-color: rgb(255, 127, 80);
     color: #fff;
     border-radius: 5px;
     padding: 1rem 2rem;
@@ -146,8 +147,89 @@ nav > * {
     box-shadow: 0 1px 4px #222;
 }
 
+
+
+/*** Media queries ***/
+
 @media screen and (max-width: 992px) {
-    .links {
+
+    /* Responsive menu */
+
+    #burger:before {
+        content: "\2716";
+        font-size: 2rem;
+        display: block;
+        opacity: 1;
+        position: fixed;
+        z-index: 99;
+        right: 5%;
+        top: 1.5rem;
+        border-radius: 5px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #burger.hide:before {
+        content: "\2630";
+        position: absolute;
+    }
+    
+    #burger.hide .menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s ease;
+    }
+
+    .menu {
+        position: fixed;
+        background-color: rgb(255, 160, 122, 95%);
+        width: 80%;
+        right: 0;
+        height: 100%;
+        z-index: 9;
+        top: 0;
+        justify-content: flex-start;
+        box-shadow: -10px 0 10px rgb(0 0 0 / 50%);
+        gap: 2rem;
+        transition: .5s ease;
+    }
+
+    .menu a {
+        color: #000;
+        font-size: 1.25rem;
+        display: block;
+        padding: 2rem;
+    }
+
+    .menu a:hover {
+        background-color: rgb(255, 127, 80);
+    }
+
+    /* End Responsive Menu */
+    
+    .menu {
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .btn {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    .slogan {
+        flex-basis: 50%;
+    }
+    
+    .hero {
+        padding: 6rem 0;
+    }
+
+    .btn {
+        width: 90%;
     }
 }
