@@ -1,0 +1,153 @@
+/** Reset styles **/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+/** Global styles **/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    font-size: 1rem;
+    background: url(./images/german-shepherd-black-cat.webp) no-repeat bottom left;
+    background-size: cover;
+    position: fixed;
+}
+
+ul {
+    list-style: none;
+}
+
+input,
+textarea {
+    padding: .5rem;
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 1px;
+}
+
+textarea {
+    max-height: 100px;
+}
+
+button {
+    border: none;
+    background-color: rgb(164, 119, 79);
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    border-radius: 1px;
+    filter: drop-shadow(0 0 5px #000);
+    
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 50px rgb(0, 0, 0, 60%) inset;
+}
+
+/** Navbar **/
+
+nav > ul {
+    display: flex;
+    list-style: none;
+    background-color: rgb(164, 119, 79, 70%);
+    color: #fff;
+}
+
+nav > ul > li {
+    display: block;
+    padding: 1rem 2rem;
+}
+
+nav > ul > li:hover {
+    cursor: pointer;
+    background-color: rgb(164, 119, 79, 50%);
+}
+
+ul li ul  {
+    display: none;
+}
+
+ul li {
+    position: relative;
+}
+
+ul li:hover ul  {
+    display: block;
+    position: absolute;
+    background: rgb(164, 119, 79, 85%);
+    left: 0;
+    bottom: -6rem;
+    min-width: 300px;
+}
+
+ul li:hover ul li {
+    padding: .75rem 2rem;
+}
+
+ul li:hover ul li:hover {
+    background: rgb(0, 0, 0, 30%);
+}
+
+/** Main content **/
+
+.container {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+}
+
+.form {
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    /* flex-direction: column; */
+    color: rgb(255, 255, 255);
+    padding: 2rem 15%;
+    overflow-y: scroll;
+}
+
+.form label {
+    display: block;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: .25rem;
+}
+
+form {
+}
+
+form > * {
+    margin: 2rem 0;
+}
+
+/** Media queries **/
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    nav > ul {
+        justify-content: center;
+    }
+}
