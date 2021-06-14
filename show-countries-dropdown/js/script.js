@@ -1,9 +1,12 @@
 // Listeners
-document.addEventListener('click', showCountries);
+document.addEventListener('click', createCountriesMenu);
+document.addEventListener('click', showCountryProps);
 
-// Get JSON countries and show them whem button is clicked
-function showCountries() {
-  const showCountries = document.querySelector('#show-countries');
+// Get JSON countries
+function createCountriesMenu() {
+  
+  // Prevents adding html more than once
+  this.removeEventListener('click', createCountriesMenu); 
 
   for (let country of countryList.listadoPaises.pais) {
 
@@ -34,6 +37,18 @@ function showCountries() {
       </div>`;
   } 
 }
+
+function showCountryProps() {
+  
+  const dropdown = document.querySelectorAll('.country .dropdown');
+
+  for (let i of dropdown) {
+    i.classList.contains('hide') ?
+    i.classList.remove('hide'):
+    i.classList.add('hide');
+  }
+}
+
 
 const countryList = {
   "listadoPaises": {
