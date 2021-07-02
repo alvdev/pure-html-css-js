@@ -1,5 +1,7 @@
 <?php
 
+include './db.php';
+
 // Declare variable to avoid undefined value input errors
 $email = $title = $ingredients = '';
 
