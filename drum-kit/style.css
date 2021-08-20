@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: red url(bg.jpg) no-repeat center center / cover;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%;
+    width: 92%;
+    margin: 0 auto;
+}
+
+kbd {
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+kbd span {
+    display: block;
+    border-top: 1px solid #555;
+    padding-top: .5rem;
+    margin-top: .5rem;
+    font-size: .6rem;
+}
