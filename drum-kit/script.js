@@ -4,7 +4,7 @@ function playSound(e) {
 
   if (audio) {
     audio.play();
-    audio.currentTime = 0; // Rewind sound to start to allow press multiple times.
+    audio.currentTime = 0; // Rewind sound to start to allow pressing multiple times.
     key.classList.add('play')
   };
 }
