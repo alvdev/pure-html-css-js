@@ -13,7 +13,7 @@ html, body {
 /* Global styles */
 
 body {
-    background: #0F1012 url(bg.jpg) no-repeat center center / cover;
+    background: #0F1012 url(bg.webp) no-repeat center center / cover;
     color: #fff;
 }
 
@@ -52,7 +52,7 @@ kbd span {
     border-top: 1px solid #555;
     padding-top: .5rem;
     margin-top: .5rem;
-    font-size: .6rem;
+    font-size: .75rem;
     color: goldenrod;
     text-transform: uppercase;
 }
