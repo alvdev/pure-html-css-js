@@ -57,8 +57,10 @@ input {
 }
 
 .picture {
-    background: var(--color) url(bg.webp) no-repeat 0 0 / cover;
+    background: transparent url(bg.webp) no-repeat 0 0 / cover;
     height: 100%;
-    margin: var(--border);
+    border-width: var(--border);
+    border-color: var(--color);
+    border-style: solid;
     filter: blur(var(--blur));
 }

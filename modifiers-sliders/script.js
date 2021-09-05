@@ -1,7 +1,10 @@
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('.controls input');
 
-console.log(inputs);
+function updateInput() {
+  const px = this.dataset.size || '';
+  const picture = document.querySelector('.picture');
 
-function slide() {
-  inputs.forEach(input => {console.log('hi')})
+  picture.style.setProperty(`--${this.id}`, this.value + px);
 }
+
+for (let input of inputs) input.addEventListener('change', updateInput);
