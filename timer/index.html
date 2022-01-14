@@ -6,20 +6,37 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Timer</title>
+        <script defer src="Timer.js"></script>
         <script defer src="index.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <div id="timer">
-            <input id="duration" type="number" value="30" />
-            <button id="start">Start</button>
-            <button id="pause">Pause</button>
+            <div class="controls">
+                <input id="duration" type="number" value="30" />
+                <div class="buttons">
+                    <button id="start">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+                        </svg>
+                    </button>
+                    <button id="pause">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="circle">
+                <svg width="310" height="310">
+                    <circle r="145" cx="150" cy="155" fill="transparent" stroke="royalblue" stroke-width="10"
+                        stroke-dasharray="0" stroke-dashoffset="-10" transform="rotate(-90 150 150)"></circle>
+                </svg>
+            </div>
         </div>
-        <svg width="210" height="210">
-            <circle r="100" cx="105" cy="105" fill="transparent" stroke="royalblue" stroke-width="10"
-                    stroke-dasharray="620" stroke-dashoffset="-10" transform="rotate(-90 100 100)">
-            </circle>
-        </svg>
     </body>
 
 </html>
