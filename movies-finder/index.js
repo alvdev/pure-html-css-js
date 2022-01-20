@@ -12,11 +12,19 @@ const fetchData = async searchTerm => {
 
 const input = document.querySelector('input');
 
-let timeoutId;
-const onInput = input.addEventListener('keypress', e => {
-  if (timeoutId) clearTimeout(timeoutId);
-  // Avoid api queries between keystrokes lasting less 1 second
-  timeoutId = setTimeout(() => {
-    fetchData(e.target.value);
-  }, 1000);
-});
+// Avoid api queries between keystrokes lasting less than 1 second by default
+const debounce = (func, delay = 1000) => {
+  let timeoutId;
+  return (...args) => {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(null, args);
+    }, delay);
+  };
+};
+
+const onInput = e => {
+  fetchData(e.target.value);
+}
+
+input.addEventListener('input', debounce(onInput, 500))
