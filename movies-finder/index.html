@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>Movies finder</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="utils.js"></script>
-    <script defer src="index.js"></script>
-  </head>
+    <head>
+        <title>Movies finder</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script defer src="utils.js"></script>
+        <script defer src="index.js"></script>
+    </head>
 
-  <body>
-    <section class="hero is-primary is-bold">
-      <div class="hero-body">
+    <body>
+        <section class="hero is-primary is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Movie Fight
+                        <span class="icon">
+                            <i class="fas fa-film"></i>
+                        </span>
+                    </h1>
+                </div>
+            </div>
+        </section>
         <div class="container">
-          <h1 class="title">
-            Movie Fight
-            <span class="icon">
-              <i class="fas fa-film"></i>
-            </span>
-          </h1>
+            <div class="dropdown is-active">
+                <input type="text">
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-item">Movie 1</a>
+                        <a class="dropdown-item">Movie 2</a>
+                        <a href="#" class="dropdown-item is-active">Movie 3</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-    <div class="container">
-      <input type="text">
-    </div>
-  </body>
+    </body>
 
 </html>
