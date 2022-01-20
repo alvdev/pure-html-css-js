@@ -7,13 +7,27 @@ const fetchData = async searchTerm => {
       })
   );
 
-  console.log(await response.json());
+  const results = await response.json();
+
+  // Fix console iterable error if any movie is not found
+  if (results.Error) return [];
+
+  return results.Search;
 };
 
 const input = document.querySelector('input');
 
-const onInput = e => {
-  fetchData(e.target.value);
+const onInput = async e => {
+  const movies = await fetchData(e.target.value);
+  console.log(movies);
+  for (let movie of movies) {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <h1>${movie.Title}</h1>
+      <img src="${movie.Poster}" alt="">
+    `;
+    document.body.appendChild(div);
+  }
 };
 
 input.addEventListener('input', debounce(onInput, 500));
