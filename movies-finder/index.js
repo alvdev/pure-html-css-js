@@ -61,6 +61,7 @@ const onInput = async e => {
     option.addEventListener('click', () => {
       input.value = movie.Title;
       dropdown.classList.remove('is-active');
+      onMovieSelect(movie);
     });
   }
 };
@@ -69,3 +70,15 @@ input.addEventListener('input', debounce(onInput, 500));
 document.addEventListener('click', e => {
   if (!root.contains(e.target)) dropdown.classList.remove('is-active');
 });
+
+const onMovieSelect = async () => {
+  const response = await fetch(
+    'https://www.omdbapi.com?' +
+      new URLSearchParams({
+        apikey: '3e690ec9',
+        i: 'tt1285016',
+      })
+  );
+
+  return await response.json();
+};
