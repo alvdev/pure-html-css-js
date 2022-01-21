@@ -15,7 +15,7 @@ const fetchData = async searchTerm => {
   return results.Search;
 };
 
-const root = document.querySelector('.autocomplete');
+const root = document.querySelector('#autocomplete');
 root.innerHTML = `
   <div>
     <label for="search">
@@ -71,7 +71,7 @@ document.addEventListener('click', e => {
   if (!root.contains(e.target)) dropdown.classList.remove('is-active');
 });
 
-const onMovieSelect = async () => {
+const onMovieSelect = async movie => {
   const response = await fetch(
     'https://www.omdbapi.com?' +
       new URLSearchParams({
@@ -80,5 +80,26 @@ const onMovieSelect = async () => {
       })
   );
 
-  return await response.json();
+  document.querySelector('#summary').innerHTML = movieTemplate(
+    await response.json()
+  );
+};
+
+const movieTemplate = movieInfo => {
+  return `
+    <article class="media">
+      <figure class="media-left">
+        <p class="image">
+          <img src="${movieInfo.Poster} alt="">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <h1>${movieInfo.Title}</h1>
+          <h4>${movieInfo.Genre}</h4>
+          <p>${movieInfo.Plot}</p>
+        </div>
+      </div>
+    </article>
+  `;
 };
