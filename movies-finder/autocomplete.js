@@ -1,4 +1,4 @@
-const createAutocomplete = ({ root }) => {
+const createAutocomplete = ({ root, renderOption }) => {
   root.innerHTML = `
   <div>
     <label for="search">
@@ -29,14 +29,10 @@ const createAutocomplete = ({ root }) => {
     dropdown.classList.add('is-active');
     for (let movie of movies) {
       const option = document.createElement('a');
-      const img = movie.Poster === 'N/A' ? '' : movie.Poster;
 
       option.setAttribute('href', '#');
       option.classList.add('dropdown-item');
-      option.innerHTML = `
-      <img src="${img}" alt="">
-      <h1>${movie.Title}</h1>
-    `;
+      option.innerHTML = renderOption(movie);
 
       results.appendChild(option);
 
