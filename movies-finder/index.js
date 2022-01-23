@@ -18,12 +18,6 @@ const fetchData = async searchTerm => {
 createAutocomplete({
   root: document.querySelector('.autocomplete'),
 });
-createAutocomplete({
-  root: document.querySelector('.autocomplete-2'),
-});
-createAutocomplete({
-  root: document.querySelector('.autocomplete-3'),
-});
 
 const onMovieSelect = async movie => {
   const response = await fetch(
