@@ -1,20 +1,3 @@
-const fetchData = async searchTerm => {
-  const response = await fetch(
-    'https://www.omdbapi.com?' +
-      new URLSearchParams({
-        apikey: '3e690ec9',
-        s: searchTerm,
-      })
-  );
-
-  const results = await response.json();
-
-  // Fix console iterable error if any movie is not found
-  if (results.Error) return [];
-
-  return results.Search;
-};
-
 createAutocomplete({
   root: document.querySelector('.autocomplete'),
   renderOption(movie) {
@@ -29,6 +12,22 @@ createAutocomplete({
   },
   inputValue(movie) {
     return movie.Title;
+  },
+  async fetchData(searchTerm) {
+    const response = await fetch(
+      'https://www.omdbapi.com?' +
+        new URLSearchParams({
+          apikey: '3e690ec9',
+          s: searchTerm,
+        })
+    );
+
+    const results = await response.json();
+
+    // Fix console iterable error if any movie is not found
+    if (results.Error) return [];
+
+    return results.Search;
   },
 });
 
