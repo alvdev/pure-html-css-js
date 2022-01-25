@@ -1,17 +1,17 @@
-const createAutocomplete = ({ root, renderOption }) => {
+const createAutocomplete = ({ root, renderOption, onOptionSelect, inputValue }) => {
   root.innerHTML = `
-  <div>
-    <label for="search">
-      <strong>Search for a movies</strong>
-    </label>
-    <input id="search" class="input" type="text">
-  </div>
-  <div class="dropdown">
-    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-        <div class="dropdown-content results"></div>
+    <div>
+      <label for="search">
+        <strong>Search for a movies</strong>
+      </label>
+      <input id="search" class="input" type="text">
     </div>
-  </div>
-`;
+    <div class="dropdown">
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content results"></div>
+      </div>
+    </div>
+  `;
 
   const input = root.querySelector('input');
   const dropdown = root.querySelector('.dropdown');
@@ -38,14 +38,15 @@ const createAutocomplete = ({ root, renderOption }) => {
 
       // Update input value with clicked movie title
       option.addEventListener('click', () => {
-        input.value = movie.Title;
+        input.value = inputValue(movie);
         dropdown.classList.remove('is-active');
-        onMovieSelect(movie);
+        onOptionSelect(movie);
       });
     }
   };
   input.addEventListener('input', debounce(onInput, 500));
 
+  // Close dropdown when click outside root element
   document.addEventListener('click', e => {
     if (!root.contains(e.target)) dropdown.classList.remove('is-active');
   });
