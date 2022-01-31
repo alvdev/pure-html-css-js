@@ -13,18 +13,33 @@
     <body>
         <section class="hero is-primary is-bold">
             <div class="hero-body">
-                <div class="container">
-                    <h1 class="title">
-                        Movie Fight
-                        <span class="icon">
-                            <i class="fas fa-film"></i>
-                        </span>
-                    </h1>
-                </div>
+                <h1 class="title">
+                    Movie Fight
+                    <span class="icon">
+                        <i class="fas fa-film"></i>
+                    </span>
+                </h1>
             </div>
         </section>
-        <div class="autocomplete"></div>
-        <div class="summary"></div>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div id="left-autocomplete"></div>
+                </div>
+
+                <div class="column">
+                    <div id="right-autocomplete"></div>
+                </div>
+            </div>
+
+            <div class="column is-half notification is-primary tutorial">
+                <h1 class="title">Seach for a movie on both sides</h1>
+                <p class="subtitle">We will tell you which is best!</p>
+            </div>
+
+        </div>
+        <!-- <div class="autocomplete"></div>
+        <div class="summary"></div> -->
     </body>
 
 </html>
