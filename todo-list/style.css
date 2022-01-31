@@ -1,0 +1,76 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #ec2c2c, #e9993d 75%) no-repeat 0 0;
+    height: 100%;
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 40px;
+    position: relative;
+    display: flex;
+    place-content: center;
+    text-transform: uppercase;
+}
+
+input,
+button {
+    border: none;
+    padding: 5px;
+}
+
+h1:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    background-color: #fff;
+    height: 2px;
+    width: 30px;
+}
+
+.task-wrapper {
+    display: flex;
+    place-content: center;
+    width: 100vw;
+    overflow: hidden;
+}
+
+input {
+    width: 50%;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    place-content: center;
+    place-items: center;
+    color: #fff;
+    background-color: #e9993d;
+}
+
+button svg {
+    height: 15px;
+}
+
+button.remove {
+    background-color: #ec2c2c;
+}
+
+button:hover {
+    cursor: pointer;
+}
