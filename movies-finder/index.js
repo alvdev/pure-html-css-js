@@ -32,7 +32,7 @@ createAutocomplete({
   root: document.querySelector('#left-autocomplete'),
   onOptionSelect(movie) {
     document.querySelector('.tutorial').classList.add('is-hidden');
-    onMovieSelect(movie, document.querySelector('#left-summary'));
+    onMovieSelect(movie, document.querySelector('#left-summary'), 'left');
   },
 });
 
@@ -41,11 +41,13 @@ createAutocomplete({
   root: document.querySelector('#right-autocomplete'),
   onOptionSelect(movie) {
     document.querySelector('.tutorial').classList.add('is-hidden');
-    onMovieSelect(movie, document.querySelector('#right-summary'));
+    onMovieSelect(movie, document.querySelector('#right-summary'), 'right');
   },
 });
 
-const onMovieSelect = async (movie, summaryElement) => {
+let leftMovie;
+let rightMovie;
+const onMovieSelect = async (movie, summaryElement, side) => {
   const response = await fetch(
     'https://www.omdbapi.com?' +
       new URLSearchParams({
@@ -53,8 +55,15 @@ const onMovieSelect = async (movie, summaryElement) => {
         i: movie.imdbID,
       })
   );
+  const data = await response.json();
+  summaryElement.innerHTML = movieTemplate(data);
 
-  summaryElement.innerHTML = movieTemplate(await response.json());
+  // Assign fetched movie data to a var to be able to comparing later
+  side === 'left' ? (leftMovie = data) : (rightMovie = data);
+
+  if (leftMovie && rightMovie) {
+    console.log('Start comparison');
+  }
 };
 
 const movieTemplate = movieInfo => {
