@@ -62,11 +62,30 @@ const onMovieSelect = async (movie, summaryElement, side) => {
   side === 'left' ? (leftMovie = data) : (rightMovie = data);
 
   if (leftMovie && rightMovie) {
-    console.log('Start comparison');
+    runComparison();
   }
 };
 
+const runComparison = () => {
+  // Find the first 'article' element for each movie
+  // Run a comparison on the # of awards
+  // Then apply some styling to that 'article element
+};
+
 const movieTemplate = movieInfo => {
+  const awards = movieInfo.Awards.split(' ').reduce((acc, curr) => {
+    const value = parseInt(curr);
+    if (isNaN(value)) {
+      return acc
+    } else {
+      return acc + value;
+    }
+  }, 0);
+  const boxOffice = parseInt(movieInfo.BoxOffice.replace(/[$,]/ig, ''));
+  const metaScore = parseInt(movieInfo.Metascore);
+  const imdbRating = parseFloat(movieInfo.imdbRating);
+  const imdbVotes = parseInt(movieInfo.imdbVotes.replace(/,/ig, ''));
+  
   return `
     <article class="media">
       <figure class="media-left">
