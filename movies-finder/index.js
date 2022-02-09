@@ -70,22 +70,36 @@ const runComparison = () => {
   // Find the first 'article' element for each movie
   // Run a comparison on the # of awards
   // Then apply some styling to that 'article element
+  const leftArticles = document.querySelectorAll('#left-summary .notification');
+  const rightArticles = document.querySelectorAll(
+    '#right-summary .notification'
+  );
+
+  leftArticles.forEach((leftItem, index) => {
+    if (leftItem.dataset.set < rightArticles[index].dataset.set) {
+      leftItem.classList.remove('is-primary');
+      leftItem.classList.add('is-warning');
+    } else {
+      rightItem[index].classList.remove('is-primary');
+      rightItem[index].classList.add('is-warning');
+    }
+  });
 };
 
 const movieTemplate = movieInfo => {
   const awards = movieInfo.Awards.split(' ').reduce((acc, curr) => {
     const value = parseInt(curr);
     if (isNaN(value)) {
-      return acc
+      return acc;
     } else {
       return acc + value;
     }
   }, 0);
-  const boxOffice = parseInt(movieInfo.BoxOffice.replace(/[$,]/ig, ''));
+  const boxOffice = parseInt(movieInfo.BoxOffice.replace(/[$,]/gi, ''));
   const metaScore = parseInt(movieInfo.Metascore);
   const imdbRating = parseFloat(movieInfo.imdbRating);
-  const imdbVotes = parseInt(movieInfo.imdbVotes.replace(/,/ig, ''));
-  
+  const imdbVotes = parseInt(movieInfo.imdbVotes.replace(/,/gi, ''));
+
   return `
     <article class="media">
       <figure class="media-left">
@@ -102,27 +116,27 @@ const movieTemplate = movieInfo => {
       </div>
     </article>
     
-    <article class="notification is-primary">
+    <article data-set="${awards}" class="notification is-primary">
       <p class="title">${movieInfo.Awards}</p>
       <p class="subtitle">Awards</p>
     </article>
 
-    <article class="notification is-primary">
+    <article data-set="${boxOffice}" class="notification is-primary">
       <p class="title">${movieInfo.BoxOffice}</p>
       <p class="subtitle">Box Office</p>
     </article>
 
-    <article class="notification is-primary">
+    <article data-set="${metaScore}" class="notification is-primary">
       <p class="title">${movieInfo.Metascore}</p>
       <p class="subtitle">Metascore</p>
     </article>
 
-    <article class="notification is-primary">
+    <article data-set="${imdbRating}" class="notification is-primary">
       <p class="title">${movieInfo.imdbRating}</p>
       <p class="subtitle">IMDB Rating</p>
     </article>
 
-    <article class="notification is-primary">
+    <article data-set="${imdbVotes}" class="notification is-primary">
       <p class="title">${movieInfo.imdbVotes}</p>
       <p class="subtitle">IMDB Votes</p>
     </article>
