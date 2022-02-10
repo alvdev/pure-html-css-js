@@ -70,18 +70,18 @@ const runComparison = () => {
   // Find the first 'article' element for each movie
   // Run a comparison on the # of awards
   // Then apply some styling to that 'article element
-  const leftArticles = document.querySelectorAll('#left-summary .notification');
-  const rightArticles = document.querySelectorAll(
-    '#right-summary .notification'
-  );
+  const leftStats = document.querySelectorAll('#left-summary .notification');
+  const rightStats = document.querySelectorAll('#right-summary .notification');
 
-  leftArticles.forEach((leftItem, index) => {
-    if (leftItem.dataset.set < rightArticles[index].dataset.set) {
-      leftItem.classList.remove('is-primary');
-      leftItem.classList.add('is-warning');
+  leftStats.forEach((leftStat, index) => {
+    const rightStat = rightStats[index];
+    console.log(leftStat, rightStat);
+    if (leftStat.dataset.set < rightStat.dataset.set) {
+      leftStat.classList.remove('is-primary');
+      leftStat.classList.add('is-warning');
     } else {
-      rightItem[index].classList.remove('is-primary');
-      rightItem[index].classList.add('is-warning');
+      rightStat.classList.remove('is-primary');
+      rightStat.classList.add('is-warning');
     }
   });
 };
