@@ -1,0 +1,19 @@
+#modal {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 60%);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal-dialog {
+    background-color: #ffffff;
+    box-shadow: 0 0 100px #000000;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 8px
+}
