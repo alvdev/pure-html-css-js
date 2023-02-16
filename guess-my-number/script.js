@@ -26,5 +26,6 @@ check.addEventListener('click', () => {
   } else if (+guess.value === number) {
     message.textContent = 'You guessed it!';
     document.body.style.backgroundColor = 'forestgreen';
+    guess.disabled = true;
   }
 })
