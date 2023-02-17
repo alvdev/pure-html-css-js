@@ -17,3 +17,10 @@ closeBtn.addEventListener('click', () => {
   overlay.classList.add('hidden');
 });
 
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  };
+})
+
