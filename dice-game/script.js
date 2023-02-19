@@ -4,12 +4,17 @@
 const rollBtn = document.querySelector('.btn--roll');
 const dice = document.querySelector('.dice');
 
-const rollDice = () => {
+let curScore = 0;
+const playerCurScore = document.querySelector('.current-score');
+
+rollBtn.addEventListener('click', () => {
   const diceNum = Math.trunc(Math.random() * 6) + 1;
   dice.src = `dice-${diceNum}.png`;
-  console.log(`This is working - ${diceNum}`);
-}
 
-rollBtn.addEventListener('click', rollDice);
+  // Sum current score when rolling the dice
+  curScore += diceNum;
+  playerCurScore.textContent = curScore;
+  ;
+});
 
 
