@@ -14,11 +14,13 @@ const inputElevation = document.querySelector('.form__input--elevation');
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     function (position) {
-      console.log(position);
+      // console.log(position);
       const latitude = position.coords.latitude;
-      console.log(`The latitude is: ${latitude}`);
+      // console.log(`The latitude is: ${latitude}`);
       const longitude = position.coords.longitude;
-      console.log(`The latitude is: ${longitude}`);
+      // console.log(`The longitude is: ${longitude}`);
+      const mapUrl = `https://www.google.com/maps/@${latitude},${longitude}`
+      console.log(mapUrl)
     },
     function () {
       console.log('there are no position');
