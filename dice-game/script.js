@@ -14,7 +14,9 @@ rollBtn.addEventListener('click', () => {
   // Sum current score when rolling the dice
   curScore += diceNum;
   playerCurScore.textContent = curScore;
-  ;
+  
+  // Stop when roll dice is equal to 1
+  if (diceNum === 1) console.log('Need to change player');
 });
 
 
