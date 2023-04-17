@@ -31,6 +31,10 @@ if (navigator.geolocation) {
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
+      L.marker(coords)
+        .addTo(map)
+        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .openPopup();
     },
     function () {
       console.log('there are no position');
