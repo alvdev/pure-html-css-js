@@ -19,8 +19,18 @@ if (navigator.geolocation) {
       // console.log(`The latitude is: ${latitude}`);
       const longitude = position.coords.longitude;
       // console.log(`The longitude is: ${longitude}`);
-      const mapUrl = `https://www.google.com/maps/@${latitude},${longitude}`
-      console.log(mapUrl)
+      const mapUrl = `https://www.google.com/maps/@${latitude},${longitude}`;
+      console.log(mapUrl);
+
+      // Leaflet
+      const coords = [latitude, longitude];
+      const map = L.map('map').setView(coords, 13);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 15,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
     },
     function () {
       console.log('there are no position');
