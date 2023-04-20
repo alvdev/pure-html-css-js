@@ -35,6 +35,12 @@ if (navigator.geolocation) {
         .addTo(map)
         .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
         .openPopup();
+
+      // Click on the map
+      map.on('click', () => {
+        form.classList.remove('hidden');
+        inputDistance.focus();
+      });
     },
     function () {
       console.log('there are no position');
