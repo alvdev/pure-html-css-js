@@ -1,76 +1,126 @@
-html,
-body {
-    height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
-    background: linear-gradient(135deg, #ec2c2c, #e9993d 75%) no-repeat 0 0;
-    height: 100%;
-    font-family: Poppins, sans-serif;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    place-items: center;
+  font-family: system-ui;
+  color: #555;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
-    color: #fff;
-    font-size: 40px;
-    position: relative;
-    display: flex;
-    place-content: center;
-    text-transform: uppercase;
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
-input,
-button {
-    border: none;
-    padding: 5px;
+.countries {
+  /* margin-bottom: 8rem; */
+  display: flex;
+
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
-h1:before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -5px;
-    background-color: #fff;
-    height: 2px;
-    width: 30px;
+.country {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+  font-size: 1.8rem;
+  width: 30rem;
+  border-radius: 0.7rem;
+  margin: 0 3rem;
+  /* overflow: hidden; */
 }
 
-.task-wrapper {
-    display: flex;
-    place-content: center;
-    width: 100vw;
-    overflow: hidden;
+.neighbour::before {
+  content: 'Neighbour country';
+  width: 100%;
+  position: absolute;
+  top: -4rem;
+
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
 }
 
-input {
-    width: 50%;
+.neighbour {
+  transform: scale(0.8) translateY(1rem);
+  margin-left: 0;
 }
 
-input:focus {
-    outline: none;
+.country__img {
+  width: 30rem;
+  height: 17rem;
+  object-fit: cover;
+  background-color: #eee;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
 }
 
-button {
-    display: flex;
-    width: 30px;
-    height: 30px;
-    place-content: center;
-    place-items: center;
-    color: #fff;
-    background-color: #e9993d;
+.country__data {
+  padding: 2.5rem 3.75rem 3rem 3.75rem;
 }
 
-button svg {
-    height: 15px;
+.country__name {
+  font-size: 2.7rem;
+  margin-bottom: 0.7rem;
 }
 
-button.remove {
-    background-color: #ec2c2c;
+.country__region {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  color: #888;
 }
 
-button:hover {
-    cursor: pointer;
+.country__row:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.country__row span {
+  display: inline-block;
+  margin-right: 2rem;
+  font-size: 2.4rem;
+}
+
+.btn-country {
+  border: none;
+  font-size: 2rem;
+  padding: 2rem 5rem;
+  border-radius: 0.7rem;
+  color: white;
+  background-color: orangered;
+  cursor: pointer;
+}
+
+.images {
+  display: flex;
+}
+
+.images img {
+  display: block;
+  width: 80rem;
+  margin: 4rem;
+}
+
+.images img.parallel {
+  width: 40rem;
+  margin: 2rem;
+  border: 3rem solid white;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
 }
