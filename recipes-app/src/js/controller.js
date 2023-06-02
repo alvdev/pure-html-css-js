@@ -1,3 +1,5 @@
+import { state } from './model.js';
+
 const recipeContainer = document.querySelector('.recipe');
 
 const timeout = function (s) {
