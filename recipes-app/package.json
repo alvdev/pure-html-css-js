@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "parcel index.html",
     "build": "parcel build index.html"
   },
   "author": "alvdev",
