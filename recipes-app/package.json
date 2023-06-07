@@ -1,16 +1,17 @@
 {
-  "name": "recipes-app",
-  "version": "1.0.0",
-  "description": "",
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "author": "alvdev",
-  "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.9.1",
-    "parcel": "^2.9.1"
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "npm": "^9.6.7"
   }
 }
