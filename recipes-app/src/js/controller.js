@@ -1,4 +1,5 @@
 import { state } from './model.js';
+import { API_URL } from './config.js';
 
 const recipeContainer = document.querySelector('.recipe');
 
@@ -10,6 +11,6 @@ const timeout = function (s) {
   });
 };
 
-// https://recipes-api.herokuapp.com/v2
-
 ///////////////////////////////////////
+
+console.log(API_URL);
